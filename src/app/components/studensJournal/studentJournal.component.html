@@ -1,0 +1,15 @@
+<h1>Students list</h1>
+
+<!--<ng-template #loading>-->
+<!--  <h3>Loading...</h3>-->
+<!--</ng-template>-->
+<!--<ul *ngIf="students$ | async; let students; else loading">-->
+<!--  <li *ngFor="let item of students;">{{item.firstName}} {{item.lastName}} {{item.age}} {{item.group}}</li>-->
+<!--</ul>-->
+
+
+<ul>
+  <li *ngFor="let sj of studentJournal$ | async">{{sj.firstName}}<div>{{sj.lastName}}</div> <div>{{sj.age}}</div>
+    <div>{{sj.group}}</div></li>
+</ul>
+<button (click)="onBtnClick()">Go to admin</button>
