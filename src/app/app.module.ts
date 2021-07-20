@@ -14,6 +14,7 @@ import {AuthGuard} from "./shared/guards/auth.guards";
 import {AuthService} from "./shared/services/auth.service";
 import {LocalStorageService} from "./shared/services/local-storage.service";
 import {StudentsApiService} from "./common/api/student-api.service";
+import {ApiModule} from "./common/api/api.module";
 
 
 
@@ -28,9 +29,10 @@ import {StudentsApiService} from "./common/api/student-api.service";
     AppRoutingModule,
     BrowserAnimationsModule,
     MatListModule,
-    AdminModule
+    AdminModule,
+    ApiModule
   ],
-  providers: [StudentJournalService, AuthGuard, AuthService, LocalStorageService, StudentsApiService],
+  providers: [StudentJournalService, AuthGuard, AuthService, LocalStorageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

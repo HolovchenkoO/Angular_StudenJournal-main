@@ -180,15 +180,12 @@
     align-items: center;
   }
 
-
-
-  svg#clouds {
-    position: fixed;
-    bottom: -160px;
-    left: -230px;
-    z-index: -10;
-    width: 1920px;
-  }
+.myButton{
+  background-color: yellow;
+  font-size: 16px;
+font-family: bolder;
+  height: 28px;
+}
 
 
   /* Responsive Styles */
@@ -231,6 +228,7 @@
   />
   <span>Welcome</span>
     <div class="spacer"></div>
+  <span><button (click)="onBtnClick()" class="myButton">Authorize</button></span>
     <a aria-label="Angular on twitter" target="_blank" rel="noopener" href="https://twitter.com/angular" title="Twitter">
       <svg id="twitter-logo" height="24" data-name="Logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
         <rect width="400" height="400" fill="none"/>
@@ -270,6 +268,7 @@
 
   </div>
 </div>
+
 
 
 <mat-list class="studentList">

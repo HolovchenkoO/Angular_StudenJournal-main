@@ -37,8 +37,10 @@ function Import() {
 // }
 
 export class StudentJournalComponent implements OnInit {
-//@Output() IsLoggedIn!: AuthService;
+//@Output() IsLoggedIn: boolean = true;
 studentJournal$: Observable<Student[]> = of([]);
+// public static IsLoggedIn: boolean = false;
+
 
   constructor(private router: Router, private studentJournalService: StudentJournalService) {
   }
@@ -46,11 +48,12 @@ studentJournal$: Observable<Student[]> = of([]);
     // програмная навигация
 
 
-   //this.IsLoggedIn.isLoggedIn = true;
+
     this.router.navigate(['/admin']);
   }
 
   ngOnInit(): void{
+
     this.studentJournal$ = this.studentJournalService.getAllStudents();
   }
 }
