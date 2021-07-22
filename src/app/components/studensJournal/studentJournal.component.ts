@@ -7,11 +7,6 @@ import {AuthGuard} from "../../shared/guards/auth.guards";
 import {AuthService} from "../../shared/services/auth.service";
 
 
-function Import() {
-
-}
-
-
 
 @Component({
   selector: 'studentJournal',
@@ -46,7 +41,7 @@ studentJournal$: Observable<Student[]> = of([]);
   }
   onViewBtnClick() {
     // програмная навигация
-    this.router.navigate(['/admin']);
+    this.router.navigate(['/viewStudent']);
   }
   onEditBtnClick() {
     // програмная навигация

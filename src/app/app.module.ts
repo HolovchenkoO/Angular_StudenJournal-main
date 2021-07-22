@@ -15,6 +15,7 @@ import {AuthService} from "./shared/services/auth.service";
 import {LocalStorageService} from "./shared/services/local-storage.service";
 import {StudentsApiService} from "./common/api/student-api.service";
 import {ApiModule} from "./common/api/api.module";
+import {ViewStudentComponent} from "./components/viewStudent/viewStudent.component";
 
 
 
@@ -22,7 +23,8 @@ import {ApiModule} from "./common/api/api.module";
   declarations: [
     AppComponent,
     StudentJournalComponent,
-    ErrorComponent
+    ErrorComponent,
+    ViewStudentComponent
   ],
   imports: [
     BrowserModule,

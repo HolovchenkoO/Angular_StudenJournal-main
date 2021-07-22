@@ -4,6 +4,7 @@ import {StudentJournalComponent} from "./components/studensJournal/studentJourna
 import {AdminComponent} from "./modules/admin/admin.component";
 import {ErrorComponent} from "./components/error/error.component";
 import {AuthGuard} from "./shared/guards/auth.guards";
+import {ViewStudentComponent} from "./components/viewStudent/viewStudent.component";
 
 const routes: Routes = [
   {
@@ -11,6 +12,9 @@ const routes: Routes = [
   } ,
   {
     path: 'admin', component: AdminComponent, canActivate:[AuthGuard]
+  },
+  {
+    path: 'viewStudent', component: ViewStudentComponent
   },
   // {
   //   path: 'admin',
