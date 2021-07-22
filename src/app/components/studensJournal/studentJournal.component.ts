@@ -44,11 +44,16 @@ studentJournal$: Observable<Student[]> = of([]);
 
   constructor(private router: Router, private studentJournalService: StudentJournalService) {
   }
-  onBtnClick() {
+  onViewBtnClick() {
     // програмная навигация
-
-
-
+    this.router.navigate(['/admin']);
+  }
+  onEditBtnClick() {
+    // програмная навигация
+    this.router.navigate(['/admin']);
+  }
+  onDeleteBtnClick() {
+    // програмная навигация
     this.router.navigate(['/admin']);
   }
 
