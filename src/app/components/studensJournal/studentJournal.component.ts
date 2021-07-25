@@ -35,19 +35,20 @@ export class StudentJournalComponent implements OnInit {
 //@Output() IsLoggedIn: boolean = true;
 studentJournal$: Observable<Student[]> = of([]);
 // public static IsLoggedIn: boolean = false;
-
+@Output() idStudent!: number;
 
   constructor(private router: Router, private studentJournalService: StudentJournalService) {
   }
-  onViewBtnClick() {
+  onViewBtnClick(idStudent: number) {
     // програмная навигация
     this.router.navigate(['/viewStudent']);
+    idStudent = this.idStudent;
   }
-  onEditBtnClick() {
+  onEditBtnClick(idStudent: number) {
     // програмная навигация
     this.router.navigate(['/admin']);
   }
-  onDeleteBtnClick() {
+  onDeleteBtnClick(idStudent: number) {
     // програмная навигация
     this.router.navigate(['/admin']);
   }

@@ -3,15 +3,25 @@ import {Observable, of} from "rxjs";
 //import {Student, StudentRawData} from "./interfaces/student.interface";
 import {StudentsApiService} from "../../common/api/student-api.service";
 import {Student} from "./interfaces/student.interface";
+import {map, tap} from "rxjs/operators";
+//import {group} from "@angular/animations";
+
+
 
 @Injectable()
 export class StudentJournalService {
   constructor(private studentsApiService: StudentsApiService) {
   }
-
+student!:Student;
   getAllStudents(): Observable<Student[]> {
     return this.studentsApiService.getAllStudents();
   }
+
+  getStudent(student: Student) {
+   // let student: Student;
+    return this.studentsApiService.getAllStudents().pipe(tap(()=>{
+      student.id, student.firstName, student.lastName, student.age, student.group
+    }  )) }
   //
   //   getAllStudents(): Observable<Student[]> {
   //     return of([{

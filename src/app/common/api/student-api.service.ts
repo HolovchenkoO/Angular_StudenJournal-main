@@ -1,5 +1,6 @@
 import {Injectable} from "@angular/core";
 import {Observable, of} from "rxjs";
+import {map} from "rxjs/operators";
 
 interface StudentApi {
   id: number;
@@ -32,4 +33,16 @@ export class StudentsApiService {
       group: 'Group 2'
     }]);
   }
+
+   getStudent(sa: StudentApi){
+
+    return of({
+      id: sa.id,
+      firstName: sa.firstName,
+      lastName: sa.lastName,
+      age: sa.age,
+      group: sa.group
+    })
+}
+
 }
