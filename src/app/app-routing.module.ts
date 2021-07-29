@@ -3,37 +3,25 @@ import { RouterModule, Routes } from '@angular/router';
 import {StudentJournalComponent} from "./components/studensJournal/studentJournal.component";
 import {AdminComponent} from "./modules/admin/admin.component";
 import {ErrorComponent} from "./components/error/error.component";
-import {AuthGuard} from "./shared/guards/auth.guards";
-import {ViewStudentComponent} from "./components/viewStudent/viewStudent.component";
+import {AdminAuthGuard} from "./shared/guards/admin-auth.guards";
+import {StudentAuthGuard} from "./shared/guards/student-auth.guard";
 
 const routes: Routes = [
   {
-    path: '', component: StudentJournalComponent
-  } ,
-  {
-    path: 'admin', component: AdminComponent, canActivate:[AuthGuard]
+    path: '',
+    pathMatch: 'full',
+    redirectTo: ''
   },
   {
-    path: 'viewStudent', component: ViewStudentComponent
+    path: 'admin',
+    canActivate: [AdminAuthGuard],
+    component: AdminComponent
   },
-  // {
-  //   path: 'admin',
-  //   canActivate: [AuthGuard],
-  //   children: [
-  //     {
-  //       path: '',
-  //       pathMatch: 'full',
-  //       redirectTo: 'dashboard'
-  //     },
-  //     {
-  //       path: 'dashboard',
-  //       component: DashboardComponent
-  //     }
-  //   ]
-  // },
-  // {
-  //   path: 'info/:id', component: InfoComponent
-  // },
+  {
+    path: 'student/:studentId',
+    canActivate: [StudentAuthGuard],
+    component: StudentJournalComponent
+  },
   {
     path: '**', component: ErrorComponent
   }

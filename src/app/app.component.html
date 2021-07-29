@@ -228,7 +228,6 @@ font-family: bolder;
   />
   <span>Welcome</span>
     <div class="spacer"></div>
-  <span><button (click)="onBtnClick()" class="myButton">Authorize</button></span>
     <a aria-label="Angular on twitter" target="_blank" rel="noopener" href="https://twitter.com/angular" title="Twitter">
       <svg id="twitter-logo" height="24" data-name="Logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
         <rect width="400" height="400" fill="none"/>
@@ -270,15 +269,68 @@ font-family: bolder;
 </div>
 
 
+<div class="journal">
+<div class="main">
+  <mat-list class="journal">
+    <mat-list-item><a routerLink="" routerLinkActive="active-link" [routerLinkActiveOptions]="{ exact: true }">Home</a></mat-list-item>
+    <mat-list-item><a routerLink="/admin" routerLinkActive="active-link">Admin</a></mat-list-item>
+    <mat-list-item><a [routerLink]="['student', studentId ]" routerLinkActive="active-link">Student: {{ studentId }}</a></mat-list-item>
+  </mat-list>
+</div>
 
-<mat-list class="studentList">
-  <mat-list-item><a routerLink="" routerLinkActive="active-link" [routerLinkActiveOptions]="{ exact: true }">Students Journal</a></mat-list-item>
-<!--  <mat-list-item><a routerLink=" " routerLinkActive="active-link" >Students Journal</a></mat-list-item>-->
-  <mat-list-item><a routerLink="/admin" routerLinkActive="active-link">Admin</a></mat-list-item>
-  <mat-list-item><a routerLink="/asfasfas" routerLinkActive="active-link">Error</a></mat-list-item>
-</mat-list>
+<div>
+  <button mat-raised-button color="primary" (click)="onBtnLogInClick()">Log in</button>
+  <button mat-raised-button color="primary" (click)="onBtnRegisterClick()">Register</button>
+</div>
 
-<router-outlet></router-outlet>
+<div *ngIf="isRegistered" class="logInForm">
+  <form [formGroup]="logInForm">
+    <mat-form-field appearance="fill">
+      <mat-label>First name</mat-label>
+      <input matInput formControlName="firstName" placeholder="Enter your first name...">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Last name</mat-label>
+      <input matInput formControlName="lastName" placeholder="Enter your last name...">
+    </mat-form-field>
+
+    <button [disabled]="!logInForm.valid" mat-raised-button color="primary" (click)="onBtnLogInFormClick()">Log in</button>
+  </form>
+</div>
+
+<div *ngIf="!isRegistered" class="RegisterForm">
+  <form [formGroup]="registerForm">
+    <mat-form-field appearance="fill">
+      <mat-label>First name</mat-label>
+      <input matInput formControlName="firstName" placeholder="Enter your first name...">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Last name</mat-label>
+      <input matInput formControlName="lastName" placeholder="Enter your last name...">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Age</mat-label>
+      <input matInput formControlName="age" placeholder="Enter your age...">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Group</mat-label>
+      <input matInput formControlName="group" placeholder="Enter your group...">
+    </mat-form-field>
+
+
+    <button [disabled]="!registerForm.valid" mat-raised-button color="primary" (click)="onBtnCheckInFormClick()">Check in</button>
+  </form>
+</div>
+</div>
+<div class="content">
+  <router-outlet></router-outlet>
+</div>
+
+
 
 
 

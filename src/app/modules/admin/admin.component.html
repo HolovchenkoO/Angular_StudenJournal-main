@@ -1,3 +1,44 @@
-<h1>Admin component</h1>
-<!--<a routerLink="/admin/dashboard">Dashboard</a>-->
-<router-outlet></router-outlet>
+<h1>Students Journal</h1>
+<ng-template #loading>
+  <h3>Loading...</h3>
+</ng-template>
+<ul *ngIf="students$ | async; let students; else loading">
+  <li *ngFor="let student of students;">
+    <div class="info">
+      <p style="font-weight: bold">#{{student.id}} {{student.lastName}} {{student.firstName}} - {{student.age}} y.o. {{student.group}} </p>
+
+
+      <span>
+        <button value="{{student.id}}" (click)="onBtnDelClick($event)">Delete student</button>
+        <button value="{{student.id}}" (click)="onBtnUpdateClick($event)">Update student</button>
+      </span>
+    </div>
+  </li>
+
+  <div *ngIf="update" class="update">
+    <form [formGroup]="updateForm">
+      <mat-form-field appearance="fill">
+        <mat-label>First name</mat-label>
+        <input matInput formControlName="firstName">
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Last name</mat-label>
+        <input matInput formControlName="lastName">
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Age</mat-label>
+        <input matInput formControlName="age">
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Group</mat-label>
+        <input matInput formControlName="group">
+      </mat-form-field>
+
+      <button [disabled]="!updateForm.valid" mat-raised-button color="primary" (click)="onBtnUpdateFormClick()">Save</button>
+    </form>
+  </div>
+
+</ul>

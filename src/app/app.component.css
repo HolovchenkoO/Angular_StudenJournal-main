@@ -1,4 +1,11 @@
 .studentList {
-  margin-left: 700px;
+  margin-left: 400px;
   /*text-align: center;*/
+}
+.journal{
+  /*margin-left: 650px;*/
+  font-size: 18px;
+  color: #1976d2;
+  text-align: center;
+
 }

@@ -1,16 +1,10 @@
 <div class="journal">
 
-<h1>Students list</h1>
+  <h1>{{student.lastName}} {{student.firstName}}</h1>
+  <div class="info">
+    <p>Age: {{student.age}} y.o.</p>
+    <p>Group: {{student.group}}</p>
+   </div>
 
-<ul>
-  <li *ngFor="let sj of studentJournal$ | async">{{sj.firstName}}<div>{{sj.lastName}}</div> <div>{{sj.age}}</div>
-    <div>{{sj.group}}</div>
-    <div>
-  <span><button class="view_btn" (click)="onViewBtnClick(sj.id)">View</button></span>
-    <span><button class="edit_btn" (click)="onEditBtnClick(sj.id)">Edit</button></span>
-    <span><button class="delete_btn" (click)="onDeleteBtnClick(sj.id)">Delete</button></span>
-    </div>
-  </li>
-</ul>
 
 </div>
